@@ -101,3 +101,89 @@ Sound serves both informational and emotional purposes.
 * **Collisions:** Different sounds for different materials (Wood on Stone, Wood on Metal). Volume scales with `LinearVelocity`.
 * **Tension:** Wood creaking/groaning sounds when the ladder is bent or wedged under pressure.
 * **Narrator:** A calm, slightly bureaucratic voice that comments on failures.
+
+---
+
+## Project Roadmap
+
+### Phase 1: "Physics Prototype" (The Greybox)
+> **Goal:** Working with grey boxes, a capsule character, and a rectangle (the ladder). Walking and swinging the object must feel satisfying yet frustrating. **Zero graphics.**
+
+- [ ] **1.1 Project Setup (Godot + C#)**
+    - [ ] Configure .NET environment.
+    - [ ] Set up 2D Physics (Gravity, Collision Layers).
+- [ ] **1.2 Player Controller (Sisyphus)**
+    - [ ] Basic Movement (WSAD), Jumping.
+    - [ ] `CharacterBody2D` implementation.
+- [ ] **1.3 Ladder Physics**
+    - [ ] Add `RigidBody2D` (Ladder).
+    - [ ] Connect to Player via `PinJoint2D`.
+    - [ ] Control Script: Mouse applies **Torque** (force), instead of setting rotation directly.
+- [ ] **1.4 "The Playroom" (Test Room)**
+    - [ ] Create 3 simple obstacles using grey blocks:
+        - [ ] Narrow Tunnel (Collision test).
+        - [ ] The Gap (Bridging test).
+        - [ ] High Ledge (Climbing/Pull-up test).
+
+** Milestone 1:** You can clear these 3 obstacles without physics bugs (e.g., flying into space, clipping through walls).
+
+---
+
+### Phase 2: "Deep Mechanics" (Core Systems)
+> **Goal:** The ladder stops being just a block and becomes a tool. Adding control nuances.
+
+- [ ] **2.1 Grip Mechanic**
+    - [ ] Implement a key (e.g., Space) to "stiffen" the joint (increase `angular_damp` or joint bias), allowing for precise aiming at the cost of speed.
+- [ ] **2.2 Surface Physics**
+    - [ ] Add `PhysicsMaterial` to the ladder (Friction and Bounce). The ladder shouldn't slip like soap; it needs to "grip" edges.
+- [ ] **2.3 Dynamic Camera**
+    - [ ] Camera should not lock rigidly on the player but "look" where you are aiming the ladder (up/down).
+- [ ] **2.4 Fall System (Ragdoll)**
+    - [ ] High-velocity falls trigger a loss of control (character becomes a physical ragdoll), but the ladder remains attached.
+
+** Milestone 2:** The game is mechanically fully playable. Falls hurt, and success feels rewarding.
+
+---
+
+### Phase 3: "Tower Construction" (Level Design)
+> **Goal:** Create a continuous map that breaks the player's spirit.
+
+- [ ] **3.1 Tilemap System**
+    - [ ] Prepare Autotiles (simple placeholders) for rapid level building.
+- [ ] **3.2 Biome Design (Draft)**
+    - [ ] Build the full vertical path: **Slums -> Industrial -> Clockwork -> Peaks**.
+    - [ ] Implement specific traps (The Needle's Eye, The Pendulum).
+- [ ] **3.3 Save System**
+    - [ ] Real-time position saving (every second).
+    - [ ] **Rule:** No "Checkpoints," only pain. If you quit while falling, you resume falling when you reload.
+
+** Milestone 3:** It is possible to climb (or attempt to climb) from the very bottom to the very top.
+
+---
+
+### Phase 4: "Polish & Atmosphere" (Art & Juice)
+> **Goal:** The game stops looking like a prototype and starts looking like a product.
+
+- [ ] **4.1 Visuals**
+    - [ ] Replace grey blocks with final assets (Pixel Art / Hand-drawn).
+    - [ ] Sisyphus Animations (Exertion, sweating, dangling legs).
+- [ ] **4.2 Audio (Crucial)**
+    - [ ] Ladder collision sounds (varied based on impact velocity).
+    - [ ] Character grunts/effort sounds.
+    - [ ] Ambience (Wind, distant city noise).
+- [ ] **4.3 Narrator**
+    - [ ] System to trigger voice lines/text based on zones or after significant falls.
+
+** Milestone 4:** The game looks and sounds professional.
+
+---
+
+### Phase 5: Release & Testing
+> **Goal:** Releasing the game to the world.
+
+- [ ] **5.1 Playtesting**
+    - [ ] Observe friends playing. Do they get stuck where intended, or is it bad design?
+- [ ] **5.2 Bugfixing**
+    - [ ] Patching collision holes.
+- [ ] **5.3 Publication**
+    - [ ] Itch.io / Steam page setup.
