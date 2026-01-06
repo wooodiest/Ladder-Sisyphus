@@ -25,20 +25,20 @@ A **Hybrid Approach** was chosen to achieve the best balance between platforming
 
 ### 2.1. Player Structure (Scene Tree)
 * **Player (`CharacterBody2D`)**:
-    * Main node controlled by the player (`PlayerController.cs`).
-    * Handles Left/Right movement (WSAD) and gravity.
-    * Uses standard `MoveAndSlide()`.
+	* Main node controlled by the player (`PlayerController.cs`).
+	* Handles Left/Right movement (WSAD) and gravity.
+	* Uses standard `MoveAndSlide()`.
 * **PivotPoint (`Node2D`)**:
-    * Anchor point for the ladder (positioned at shoulder/hand height).
+	* Anchor point for the ladder (positioned at shoulder/hand height).
 * **`PinJoint2D`**:
-    * Physical connection between the Player and the Ladder.
-    * **Softness:** Low (stiff connection) but not zero (to prevent physics explosions).
+	* Physical connection between the Player and the Ladder.
+	* **Softness:** Low (stiff connection) but not zero (to prevent physics explosions).
 * **Ladder (`RigidBody2D`)**:
-    * The physical ladder object (`LadderPhysics.cs`).
-    * **Critical Settings:**
-        * `Solver -> Continuous CD`: **ON** (Prevents tunneling through walls during fast rotations).
-        * `Mass`: High (Must feel heavy to the player).
-        * `Linear/Angular Damp`: Tuned so the ladder doesn't spin like a fan, but provides resistance.
+	* The physical ladder object (`LadderPhysics.cs`).
+	* **Critical Settings:**
+		* `Solver -> Continuous CD`: **ON** (Prevents tunneling through walls during fast rotations).
+		* `Mass`: High (Must feel heavy to the player).
+		* `Linear/Angular Damp`: Tuned so the ladder doesn't spin like a fan, but provides resistance.
 
 ### 2.2. Collision Layers
 Proper bitmask configuration is crucial for stability.
@@ -135,11 +135,11 @@ Sound serves both informational and emotional purposes.
 - [ ] **2.1 Grip Mechanic**
     - [ ] Implement a key (e.g., Space) to "stiffen" the joint (increase `angular_damp` or joint bias), allowing for precise aiming at the cost of speed.
 - [ ] **2.2 Surface Physics**
-    - [ ] Add `PhysicsMaterial` to the ladder (Friction and Bounce). The ladder shouldn't slip like soap; it needs to "grip" edges.
+	- [ ] Add `PhysicsMaterial` to the ladder (Friction and Bounce). The ladder shouldn't slip like soap; it needs to "grip" edges.
 - [ ] **2.3 Dynamic Camera**
-    - [ ] Camera should not lock rigidly on the player but "look" where you are aiming the ladder (up/down).
+	- [ ] Camera should not lock rigidly on the player but "look" where you are aiming the ladder (up/down).
 - [ ] **2.4 Fall System (Ragdoll)**
-    - [ ] High-velocity falls trigger a loss of control (character becomes a physical ragdoll), but the ladder remains attached.
+	- [ ] High-velocity falls trigger a loss of control (character becomes a physical ragdoll), but the ladder remains attached.
 
 ** Milestone 2:** The game is mechanically fully playable. Falls hurt, and success feels rewarding.
 
@@ -152,10 +152,10 @@ Sound serves both informational and emotional purposes.
     - [ ] Prepare Autotiles (simple placeholders) for rapid level building.
 - [ ] **3.2 Biome Design (Draft)**
     - [ ] Build the full vertical path: **Slums -> Industrial -> Clockwork -> Peaks**.
-    - [ ] Implement specific traps (The Needle's Eye, The Pendulum).
+	- [ ] Implement specific traps (The Needle's Eye, The Pendulum).
 - [ ] **3.3 Save System**
-    - [ ] Real-time position saving (every second).
-    - [ ] **Rule:** No "Checkpoints," only pain. If you quit while falling, you resume falling when you reload.
+	- [ ] Real-time position saving (every second).
+	- [ ] **Rule:** No "Checkpoints," only pain. If you quit while falling, you resume falling when you reload.
 
 ** Milestone 3:** It is possible to climb (or attempt to climb) from the very bottom to the very top.
 
@@ -165,14 +165,14 @@ Sound serves both informational and emotional purposes.
 > **Goal:** The game stops looking like a prototype and starts looking like a product.
 
 - [ ] **4.1 Visuals**
-    - [ ] Replace grey blocks with final assets (Pixel Art / Hand-drawn).
-    - [ ] Sisyphus Animations (Exertion, sweating, dangling legs).
+	- [ ] Replace grey blocks with final assets (Pixel Art / Hand-drawn).
+	- [ ] Sisyphus Animations (Exertion, sweating, dangling legs).
 - [ ] **4.2 Audio (Crucial)**
-    - [ ] Ladder collision sounds (varied based on impact velocity).
-    - [ ] Character grunts/effort sounds.
-    - [ ] Ambience (Wind, distant city noise).
+	- [ ] Ladder collision sounds (varied based on impact velocity).
+	- [ ] Character grunts/effort sounds.
+	- [ ] Ambience (Wind, distant city noise).
 - [ ] **4.3 Narrator**
-    - [ ] System to trigger voice lines/text based on zones or after significant falls.
+	- [ ] System to trigger voice lines/text based on zones or after significant falls.
 
 ** Milestone 4:** The game looks and sounds professional.
 
@@ -182,8 +182,8 @@ Sound serves both informational and emotional purposes.
 > **Goal:** Releasing the game to the world.
 
 - [ ] **5.1 Playtesting**
-    - [ ] Observe friends playing. Do they get stuck where intended, or is it bad design?
+	- [ ] Observe friends playing. Do they get stuck where intended, or is it bad design?
 - [ ] **5.2 Bugfixing**
-    - [ ] Patching collision holes.
+	- [ ] Patching collision holes.
 - [ ] **5.3 Publication**
-    - [ ] Itch.io / Steam page setup.
+	- [ ] Itch.io / Steam page setup.

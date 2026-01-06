@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhnoakum8pq5i"]
+
+[ext_resource type="PackedScene" uid="uid://dft1y0evn1er3" path="res://Entities/Player/Player.tscn" id="1_f4ine"]
+[ext_resource type="PackedScene" uid="uid://cre68ainuur1l" path="res://Entities/Ladder/Ladder.tscn" id="2_yi05t"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ixvnh"]
+size = Vector2(1000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kyvp"]
+size = Vector2(1000, 20)
+
+[node name="TestWorld" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+modulate = Color(4.5724214e-06, 0.78923345, 0.02447314, 1)
+texture = SubResource("PlaceholderTexture2D_ixvnh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("RectangleShape2D_5kyvp")
+
+[node name="Player" parent="." node_paths=PackedStringArray("LadderRef") instance=ExtResource("1_f4ine")]
+position = Vector2(0, -57)
+LadderRef = NodePath("../Ladder")
+
+[node name="Ladder" parent="." instance=ExtResource("2_yi05t")]
+position = Vector2(-15, -126)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-11, -73)
+node_a = NodePath("../Player")
+node_b = NodePath("../Ladder")
+
+[editable path="Player"]

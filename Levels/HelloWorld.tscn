@@ -3,10 +3,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 133.0
-offset_top = 84.0
-offset_right = 325.0
-offset_bottom = 131.0
+offset_left = 23.0
+offset_top = 28.0
+offset_right = 215.0
+offset_bottom = 75.0
 theme_override_colors/font_color = Color(4.235506e-06, 0.7529508, 0.7874097, 1)
 theme_override_font_sizes/font_size = 34
 text = "Hello World"

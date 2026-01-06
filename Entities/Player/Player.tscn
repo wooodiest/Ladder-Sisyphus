@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dft1y0evn1er3"]
+
+[ext_resource type="Script" uid="uid://dm48ltanqm82o" path="res://Entities/Player/PlayerController.cs" id="1_e5kic"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ww0jn"]
+size = Vector2(32, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vweq0"]
+radius = 16.0
+height = 64.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_e5kic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.13482621, 0.37977874, 1, 1)
+texture = SubResource("PlaceholderTexture2D_ww0jn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vweq0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="ShoulderPivot" type="Node2D" parent="."]
+position = Vector2(-11, -16)
