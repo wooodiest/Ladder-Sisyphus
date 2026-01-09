@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://cre68ainuur1l"]
 
 [ext_resource type="PhysicsMaterial" uid="uid://hif688h73n32" path="res://Assets/Materials/Ladder/Mat_Ladder_Default.tres" id="1_bji66"]
-[ext_resource type="Script" uid="uid://btjjv7gcuywl6" path="res://Entities/Ladder/LadderPhysics.cs" id="2_ksrlc"]
+[ext_resource type="Script" uid="uid://diaw1h3a6ec0c" path="res://Entities/Ladder/Ladder.cs" id="2_bji66"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_eb0wf"]
-size = Vector2(20, 175)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bji66"]
+size = Vector2(12, 120)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkc6t"]
-size = Vector2(20, 175)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksrlc"]
+size = Vector2(12, 120)
 
 [node name="Ladder" type="RigidBody2D"]
 collision_layer = 4
@@ -16,11 +16,20 @@ physics_material_override = ExtResource("1_bji66")
 continuous_cd = 1
 linear_damp = 0.5
 angular_damp = 3.0
-script = ExtResource("2_ksrlc")
+script = ExtResource("2_bji66")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.9589307, 0.54009825, 0.17046246, 1)
-texture = SubResource("PlaceholderTexture2D_eb0wf")
+self_modulate = Color(0.31298777, 0.19913104, 0.05786433, 1)
+texture = SubResource("PlaceholderTexture2D_bji66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_qkc6t")
+shape = SubResource("RectangleShape2D_ksrlc")
+
+[node name="TopPoint" type="Marker2D" parent="."]
+position = Vector2(0, -60)
+
+[node name="BottomPoint" type="Marker2D" parent="."]
+position = Vector2(0, 60)
+
+[node name="RopeMarker" type="Marker2D" parent="."]
+position = Vector2(0, -20)

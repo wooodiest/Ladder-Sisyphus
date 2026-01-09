@@ -2,26 +2,31 @@
 
 [ext_resource type="Script" uid="uid://dm48ltanqm82o" path="res://Entities/Player/PlayerController.cs" id="1_e5kic"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ww0jn"]
-size = Vector2(32, 64)
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e5kic"]
+size = Vector2(32, 56)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vweq0"]
-radius = 16.0
-height = 64.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ww0jn"]
+radius = 14.0
+height = 56.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_e5kic")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.13482621, 0.37977874, 1, 1)
-texture = SubResource("PlaceholderTexture2D_ww0jn")
+[node name="Visuals" type="Node2D" parent="."]
+position = Vector2(0, -28)
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+self_modulate = Color(0.7622991, 0.6741873, 0.47310477, 1)
+texture = SubResource("PlaceholderTexture2D_e5kic")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_vweq0")
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_ww0jn")
+
+[node name="ShoulderMarker" type="Marker2D" parent="."]
+position = Vector2(0, -45)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -28)
 position_smoothing_enabled = true
-
-[node name="ShoulderPivot" type="Node2D" parent="."]
-position = Vector2(-11, -16)

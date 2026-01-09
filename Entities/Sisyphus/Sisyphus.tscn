@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk25xr6dqrxi"]
+
+[ext_resource type="Script" uid="uid://brgqys3oxub8u" path="res://Entities/Sisyphus/Sisyphus.cs" id="1_k1nd5"]
+[ext_resource type="PackedScene" uid="uid://dft1y0evn1er3" path="res://Entities/Player/Player.tscn" id="2_2gcy0"]
+[ext_resource type="PackedScene" uid="uid://cre68ainuur1l" path="res://Entities/Ladder/Ladder.tscn" id="3_7cju7"]
+
+[node name="Sisyphus" type="Node2D" node_paths=PackedStringArray("_player", "_ladder", "_joint", "_ropeVisual")]
+script = ExtResource("1_k1nd5")
+_player = NodePath("Player")
+_ladder = NodePath("Ladder")
+_joint = NodePath("Joint")
+_ropeVisual = NodePath("RopeVisual")
+
+[node name="Player" parent="." instance=ExtResource("2_2gcy0")]
+
+[node name="Ladder" parent="." instance=ExtResource("3_7cju7")]
+position = Vector2(50, -64)
+
+[node name="Joint" type="PinJoint2D" parent="."]
+softness = 0.5
+
+[node name="RopeVisual" type="Line2D" parent="."]
+width = 3.0
+default_color = Color(0.5212331, 0.37869018, 0.25505662, 1)
